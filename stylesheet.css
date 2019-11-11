@@ -1,0 +1,112 @@
+.links{
+	display: inline-block;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+.customButton{
+	margin: 10px;
+	left: 7vw;
+}
+
+.extraMargin{
+	margin-top: 100px;
+}
+.imageOverlay:hover { 
+	background-color: hsla(247, 100%, 0%, 0.7);
+	position: absolute;
+	top: 0;
+}
+#topButton{
+	position: fixed;
+	top: 90vh;
+	left: 85vw;
+	z-index: 99;
+	display: none;
+}
+.rotated{
+	transform: rotate(30deg);
+}
+
+@keyframes progress {
+	from {
+		width: 0;
+	}
+	to {
+		width: 33%;
+	}
+}
+
+@-webkit-keyframes progress {
+	from {
+		width: 0;
+	}
+	to {
+		width: 33%;
+	}
+}
+
+@keyframes progress-2 {
+	from {
+		width: 0;
+	}
+	to {
+		width: 66%;
+	}
+}
+
+@-webkit-keyframes progress-2 {
+	from {
+		width: 0;
+	}
+	to {
+		width: 66%;
+	}
+}
+
+@keyframes progress-3 {
+	from {
+		width: 0;
+	}
+	to {
+		width: 100%;
+	}
+}
+
+@-webkit-keyframes progress-3 {
+	from {
+		width: 0;
+	}
+	to {
+		width: 100%;
+	}
+}
+
+.progress33{
+	animation: progress 3s ease-in-out forwards;
+	-webkit-animation: progress 3s ease-in-out forwards;
+	animation-play-state: paused;
+	-webkit-animation-play-state:paused;
+
+}
+.progress66{
+	animation: progress-2 3s ease-in-out forwards;
+	-webkit-animation: progress-2 3s ease-in-out forwards;
+	animation-play-state: paused;
+	-webkit-animation-play-state:paused;
+
+}
+.progress100{
+	animation: progress-3 3s ease-in-out forwards;
+	-webkit-animation: progress-3 3s ease-in-out forwards;
+	animation-play-state: paused;
+	-webkit-animation-play-state:paused;			
+
+}
+
+
+.overlay{
+	background-color: white;
+	
+	
+	position: absolute;
+}
