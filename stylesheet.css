@@ -26,20 +26,67 @@
 .rotated{
 	transform: rotate(30deg);
 }
-.imageSlides{
-	display:none;
+
+body{
+	background-color:  #f1f1f1;
 }
-.butt1{
-	position: absolute;
-	left: 0;
-	top:60%;
-	text-align: center;
-	font-size: 18px;
-}
-.butt2{
-	position: absolute;
-	right: 51%;
-	top:60%;
-	text-align: center;
-	font-size: 18px;
-}
+
+* {
+	box-sizing: border-box;
+  }
+
+  /* Center website */
+  .projects-section {
+	max-width: 80vw;
+	margin: auto;
+  }
+
+  
+  .projects {
+	margin: 8px -16px;
+  }
+  
+  /* Add padding BETWEEN each project-pannel */
+  .projects,
+  .projects > .project-pannel {
+	padding: 8px;
+  }
+  
+  /* Create four equal project-pannels that floats next to each other */
+  .project-pannel {
+	float: left;
+	width: 25%;
+  }
+  .projects:after {
+	content: "";
+	display: table;
+	clear: both;
+  }
+  
+
+  
+  /* project-content */
+  .project-content {
+	background-color: white;
+
+	padding: 10px;
+  }
+  
+  /* Responsive layout - makes a two project-pannel-layout instead of four project-pannels */
+  @media screen and (max-width: 900px) {
+	.project-pannel {
+	  width: 50%;
+	}
+  }
+  
+  /* Responsive layout - makes the two project-pannels stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+	.project-pannel {
+	  width: 100%;
+	}
+  }
+  .userSelect {
+	-webkit-user-select: none; /* Chrome/Safari */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+ */
+  }

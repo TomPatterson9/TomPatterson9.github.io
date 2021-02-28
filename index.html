@@ -1,162 +1,243 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="UTF-8">
-	<title>Tom Patterson</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
-	<link rel="stylesheet" href="stylesheet.css">
-	<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-	<style>
-		html{
-			scroll-behavior: smooth;
-		}
-		.hero {
-			background: black url(src/city.jpg) center / cover;
-		}
-		.userSelect{
-			-webkit-user-select: none; /* Chrome/Safari */        
-			-moz-user-select: none; /* Firefox */
-			-ms-user-select: none; /* IE10+ */
-		}
-	</style>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tom Patterson</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="stylesheet.css" />
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+    ></script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      .hero {
+        background: black url(src/city.jpg) center / cover;
+      }
 
-</head>
-<body>
-	<section class="hero is-fullheight">
-		<div class="hero-body">
-			<div class="container">
-				<br/><br/><br/><br/><br/><br/>
-				<h1  class="subtitle has-text-success is-4">&lt;p&gt;<span class="has-text-warning"id="typeText"></span>&lt;/p&gt;</h1>
-				<h1 class="title has-text-white is-2">Tom Patterson</h1>
-				<h1 class="subtitle has-text-white is-3">| Computer Science graduate & freelance web developer |</h1>
-				<a target="_blank"class="links" href="https://www.linkedin.com/in/thomas-patterson-3b5716130/"><img src="src/linkedin.png" class="image is-48x48"></a>
-				<a target="_blank" class="links" href="https://github.com/TomPatterson9"><img src="src/github.png" class="image is-48x48"></a>
-				<a class="links rotated" href="mailto:thomas.patterson99@gmail.com"><img src="src/email.png" class="image is-48x48"></a>
-				<br/>
+    </style>
+  </head>
+  <body>
+    <section class="hero is-fullheight">
+      <div class="hero-body">
+        <div class="container">
+          <br /><br /><br /><br /><br /><br />
+          <h1 class="subtitle has-text-success is-4">
+            &lt;p&gt;<span class="has-text-warning" id="typeText"></span
+            >&lt;/p&gt;
+          </h1>
+          <h1 class="title has-text-white is-2">Tom Patterson</h1>
+          <h1 class="subtitle has-text-white is-3">
+            | Computer Science graduate & freelance web developer |
+          </h1>
+          <a
+            target="_blank"
+            class="links"
+            href="https://www.linkedin.com/in/thomas-patterson-3b5716130/"
+            ><img src="src/linkedin.png" class="image is-48x48"
+          /></a>
+          <a
+            target="_blank"
+            class="links"
+            href="https://github.com/TomPatterson9"
+            ><img src="src/github.png" class="image is-48x48"
+          /></a>
+          <a class="links rotated" href="mailto:thomas.patterson99@gmail.com"
+            ><img src="src/email.png" class="image is-48x48"
+          /></a>
+          <br />
+        </div>
+      </div>
+      <div class="hero-foot">
+        <a href="#aboutMe" class="button is-normal customButton"> Read More </a>
+        <!--<a href="blog.html" class="button is-normal customButton"> Blog </a>-->
+      </div>
+    </section>
+    <a id="topButton" onclick="scrollUp()" class="button is-danger"
+      >Return to the top</a
+    >
+    <section>
+      <div class="container">
+        <a name="aboutMe"></a>
+        <h1 class="title has-text-danger extraMargin">About Me</h1>
+        <br /><br />
 
-			</div>
-		</div>
-		<div class="hero-foot">
-			<a href="#aboutMe" class="button is-normal customButton">  Read More  </a>
-			<!--<a href="blog.html" class="button is-normal customButton"> Blog </a>-->
-		</div>
-	</section>
-	<a id="topButton" onclick="scrollUp()" class="button is-danger">Return to the top</a>
-	<section>
-		<div class="container">
-			<a name="aboutMe"></a>
-			<h1 class="title has-text-danger extraMargin">About Me</h1>
-			<br/><br/>
+        <div class="columns">
+          <div class="column">
+            <h3 class="title is-4">Profile</h3>
+            <p>
+              Hey, my name is Tom Patterson, I was born in Liverpool and I have
+              been studying Computer Science with Software Development at
+              University of Liverpool. I have recently finished third year and
+              throughout my time I have worked with Java, Javascript and MySQL.
+              For my dissertation I built a full stack application, it was a
+              search engine for finding films on multiple platforms.
+              <br /><br />
 
-			<div class="columns">
-				<div class="column">
-					<h3 class="title is-4">Profile</h3>
-					<p>Hey, my name is Tom Patterson, I was born in Liverpool and I have been studying Computer Science with Software Development at University of Liverpool. I have recently finished third year and throughout my time I have worked with Java, Javascript and MySQL. For my dissertation I built a full stack application, it was a search engine for finding films on multiple platforms. <br/><br/>
+              For my group project we created a timetable application for
+              android which would allow students to sign into lectures from
+              their phones when they were within a certain range of the lecturer
+              theater. We also created the connection between our app and our
+              database so we could allow users to login with a username and
+              password. <br /><br />
 
-						For my group project we created a timetable application for android which would allow students to sign into lectures from their phones when they were within a certain range of the lecturer theater. We also created the connection between our app and our database so we could allow users to login with a username and password. <br/><br/>
-						
-						I have always had a passion for computer science and web development in particular and this is where I have focused most of my personal projects such as creating a gaming news site. In my spare time I enjoy photography with a focus graffiti, I am currently building a web page to display these photos.
-						</p>
-					</div>
-					<div class="column">
-						<h3 class="title is-4">Skills</h3>
+              I have always had a passion for computer science and web
+              development in particular and this is where I have focused most of
+              my personal projects such as creating a gaming news site. In my
+              spare time I enjoy photography with a focus graffiti, I am
+              currently building a web page to display these photos.
+            </p>
+          </div>
+          <div class="column">
+            <h3 class="title is-4">Skills</h3>
 
-						<p class="has-text-weight-bold"><i class="far fa-check-square"></i>&nbsp; Git & Github</p>
-						<p class="has-text-weight-bold"><i class="far fa-check-square"></i>&nbsp; Java</p>
-						<p class="has-text-weight-bold"><i class="far fa-check-square"></i>&nbsp; Pure Javascript</p>
-						<p class="has-text-weight-bold"><i class="far fa-check-square"></i>&nbsp; HTML & CSS</p>
-						<p class="has-text-weight-bold"><i class="far fa-check-square"></i>&nbsp; MySQL</p>
-						<p class="has-text-weight-bold"><i class="far fa-check-square"></i>&nbsp; React Framework</p>
-						<br/>
-						<p> I have worked with many different languages while studying such as python for scraping information for a film database, javascript for building a web based game and building the behind a program for running a drinks machine.<br/><br/>
+            <p class="has-text-weight-bold">
+              <i class="far fa-check-square"></i>&nbsp; Git & Github
+            </p>
+            <p class="has-text-weight-bold">
+              <i class="far fa-check-square"></i>&nbsp; Java
+            </p>
+            <p class="has-text-weight-bold">
+              <i class="far fa-check-square"></i>&nbsp; Pure Javascript
+            </p>
+            <p class="has-text-weight-bold">
+              <i class="far fa-check-square"></i>&nbsp; HTML & CSS
+            </p>
+            <p class="has-text-weight-bold">
+              <i class="far fa-check-square"></i>&nbsp; MySQL
+            </p>
+            <p class="has-text-weight-bold">
+              <i class="far fa-check-square"></i>&nbsp; React Framework
+            </p>
+            <br />
+            <p>
+              I have worked with many different languages while studying such as
+              python for scraping information for a film database, javascript
+              for building a web based game and building the behind a program
+              for running a drinks machine.<br /><br />
 
-						I also have some real life coding experience as a way off attending two Hackathons. In the first I developed the front end of a website which would help students find friends on campus. For the second hackathon I created a text based adventure game to help students gain employment by teaching them skills.</p> <br/><br/>
-					</div>
-				</div>
-			</div>
-		</section>
-		<section class="has-background-white-ter">
-			<div class="container userSelect">
-				<div class="columns">
-					<div class="column ">
-						<br/>
+              I also have some real life coding experience as a way off
+              attending two Hackathons. In the first I developed the front end
+              of a website which would help students find friends on campus. For
+              the second hackathon I created a text based adventure game to help
+              students gain employment by teaching them skills.
+            </p>
+            <br /><br />
+          </div>
+        </div>
+      </div>
+    </section>
+    <br /><br />
+    <section>
+      <div class="projects-section">
+        <div class="projects">
+          <div class="project-pannel">
+            <div class="project-content">
+              <img src="/src/reactApp.png" style="width: 100%" />
+              <h3 class="title is-5">Film & TV show search application</h3>
+              <p>
+                I created a full stack application for my dissertation, the
+                stack was:
+              </p>
+              <ul>
+                <li>React</li>
+                <li>Node.js Express</li>
+                <li>MySQL</li>
+              </ul>
+              <p>
+                The app was designed to be a search engine so users could browse
+                through films across multiple platforms so they wouldn't have to
+                search them individually. A REST API is used and the information
+                is stored using JSON in the React states.
+              </p>
+              <a
+                href="https://github.com/TomPatterson9/Front-End-Film-App-"
+                target="_blank"
+                >Front-end repository</a
+              >
+              <a
+                href="https://github.com/TomPatterson9/Server-Side-Film-App"
+                target="_blank"
+                >Back-end repository</a
+              >
+            </div>
+          </div>
 
-						<h1 class="title has-text-danger  ">My recent work</h1>
+          <div class="project-pannel">
+            <div class="project-content">
+              <img src="/src/personalSite.JPG" style="width: 100%" />
+              <h3 class="title is-5">Portfolio Page</h3>
+              <p>
+                This page! I created my portfolio using standard HTML, CSS and
+                Javascript, I also used the Bulma framework for parts of the
+                styling. I started creating this page in 2017 and I have
+                continued to update and improve upon it.
+              </p>
+              <a
+                href="https://github.com/TomPatterson9/TomPatterson9.github.io"
+                target="_blank"
+                >Repository</a
+              >
+            </div>
+          </div>
+          <div class="project-pannel">
+            <div class="project-content">
+              <img
+                src="/src/academyinternational.png"
+                style="width: 100%"
+              />
+              <h3 class="title is-5">Academy International Wordpress website</h3>
+              <p>
+                While working as a freelance web developer, I worked with a friend to to complete the redesign of the Academy International's site. This was done using Wordpress and CSS to create a functional site with contact forms for potential students to get in touch.</p>
+				<a href="http://academy1nternational.co.uk/" target="_blank">Website</a>
+            </div>
+          </div>
+          <div class="project-pannel">
+            <div class="project-content">
+              <img
+                src="/src/garagesite.png"
+                style="width: 100%"
+              />
+              <h3 class="title is-5">Current Project: Garage website</h3>
+              <p>
+				Currently I am working with a local garage to create a new website for them. We are still in the design stage, but things are progressing well.</p>
+				<a href="https://www.figma.com/file/HDgZsIq8bE7OO0IHXVJnPu/RSServices?node-id=0%3A1" target="_blank">Figma designs</a>
+            </div>
+          </div>
+          <!-- END GRID -->
+        </div>
+      </div>
+    </section>
 
-						<br/><br/>
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          <a
+            target="_blank"
+            class="links"
+            href="https://www.linkedin.com/in/thomas-patterson-3b5716130/"
+            ><img src="src/linkedin.png" class="image is-48x48"
+          /></a>
+          <a
+            target="_blank"
+            class="links"
+            href="https://github.com/TomPatterson9"
+            ><img src="src/github.png" class="image is-48x48"
+          /></a>
+          <a class="links rotated" href="mailto:thomas.patterson99@gmail.com"
+            ><img src="src/email.png" class="image is-48x48"
+          /></a>
+        </p>
+      </div>
+    </footer>
 
-						<figure class="imageContainer">
-							<img class="imageSlides"src="src/reactApp.png">
-							<img class="imageSlides" src="src/film2.png">
-							
-								<a  class="button is-normal butt1 is-danger" onclick="plusDivs(-1)">&#10094;</a>
-								<a  class="button is-normal butt2 is-danger"onclick="plusDivs(1)">&#10095;</a>
-						</figure>
-
-						<!--   
-						<div id="project-carousel" class="carousel">
-
-							<div class="item-1">
-		
-								<img src="src/personalSite.JPG">
-								
-							</div>
-							<div class="item-2" >
-								
-							</div>
-							<div class="item-3">
-								<a class="" href="https://tompatterson9.github.io/film-gh-pages/">
-									<img src="src/proj3.jpg">
-								</a>
-							</div>
-							<div class="item-4">
-								<img src="src/underconstruction.jpg">
-							</div>
-							<div class="item-5">
-								<img src="src/underconstruction.jpg">
-							</div>
-							
-						</div>
-						-->
-
-					</div>
-					<div class="column">
-						<br /><br />
-						<h3 class="title is-4">Dissertation Project</h3>
-						
-						<p>For my dissertation I created a search engine for finding films and tv shows across multiple platforms. This was a full stack application built using: </p><br />
-						<p class="has-text-weight-bold"><i class="fas fa-angle-right"></i>&nbsp; React</p>
-						<p class="has-text-weight-bold"><i class="fas fa-angle-right"></i>&nbsp; Node.js</p>
-						<p class="has-text-weight-bold"><i class="fas fa-angle-right"></i>&nbsp; Express</p>
-						<p class="has-text-weight-bold"><i class="fas fa-angle-right"></i>&nbsp; MySQL</p>
-						<br / > 
-						<p>The application allows users to search through a database, it was built in react so that it can be run as a single page application. When a user clicks on a film it displays basic information about that film.</p>
-
-
-					</div>
-				</div>
-				
-				
-			</div>
-			<br/><br/>
-		</section>
-
-		<footer class="footer">
-			<div class="content has-text-centered">
-				<p>
-					<a target="_blank"class="links" href="https://www.linkedin.com/in/thomas-patterson-3b5716130/"><img src="src/linkedin.png" class="image is-48x48"></a>
-					<a target="_blank" class="links" href="https://github.com/TomPatterson9"><img src="src/github.png" class="image is-48x48"></a>
-					<a class="links rotated" href="mailto:thomas.patterson99@gmail.com"><img src="src/email.png" class="image is-48x48"></a>
-				</p>
-			</div>
-		</footer>
-
-
-		<script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js"></script>
-		<script src="script.js"></script>
-
-
-
-	</body>
-	</html>
+    <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
