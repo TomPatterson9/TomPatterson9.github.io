@@ -71,7 +71,11 @@ body{
 
 	padding: 10px;
   }
-  
+  @media screen and (min-width: 1200px){
+	.project-content{
+		height: 70vh;
+	}
+  }
   /* Responsive layout - makes a two project-pannel-layout instead of four project-pannels */
   @media screen and (max-width: 900px) {
 	.project-pannel {
