@@ -1,0 +1,297 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Each photo entry — replace src values with your actual image paths in /public/photos/
+// caption and location will show in the lightbox
+const photos = [
+  { src: '/photos/_DSC0245.jpg', caption: 'Untitled', location: 'Liverpool', category: 'Graffiti' },
+  { src: '/photos/_DSC0205.jpg', caption: 'Untitled', location: 'Liverpool', category: 'Street' },
+  { src: '/photos/_DSC0003.jpg', caption: 'Untitled', location: 'Croatia', category: 'Graffiti' },
+  { src: '/photos/_DSC0004.jpg', caption: 'Untitled', location: 'Croatia', category: 'Urban' },
+  { src: '/photos/_DSC0017.jpg', caption: 'Untitled', location: 'Croatia', category: 'Graffiti' },
+  { src: '/photos/_DSC0046.jpg', caption: 'Untitled', location: 'Croatia', category: 'Street' },
+  { src: '/photos/_DSC00461.jpg', caption: 'Untitled', location: 'Crosby', category: 'Urban' },
+  { src: '/photos/_DSC0082.jpg', caption: 'Untitled', location: 'Edinburgh', category: 'Graffiti' },
+  { src: '/photos/_DSC0080.jpg', caption: 'Untitled', location: 'Edinburgh', category: 'Street' },
+  { src: '/photos/_DSC0402.jpg', caption: 'Untitled', location: 'Liverpool', category: 'Street' },
+
+];
+
+const categories = ['All', ...Array.from(new Set(photos.map(p => p.category)))];
+---
+
+<BaseLayout title="Tom Patterson — Photography" page="photography">
+
+  <!-- HERO -->
+  <section class="photo-hero animate-fade-up">
+    <div class="photo-hero-inner">
+      <p class="photo-label">02 / Photography</p>
+      <h1 class="photo-title">Through<br>the <em>lens.</em></h1>
+      <p class="photo-bio">
+        Street and graffiti photography around Liverpool and beyond.
+        Shot on film and digital.
+      </p>
+    </div>
+    <div class="photo-filters">
+      {categories.map(cat => (
+        <button class={`filter-btn ${cat === 'All' ? 'active' : ''}`} data-filter={cat}>
+          {cat}
+        </button>
+      ))}
+    </div>
+  </section>
+
+  <!-- MASONRY GRID -->
+  <section class="photo-grid-section animate-fade-up delay-1">
+    <div class="masonry-grid" id="photo-grid">
+      {photos.map((photo, i) => (
+        <a
+          href={photo.src}
+          class="photo-item glightbox"
+          data-gallery="portfolio"
+          data-description={`${photo.caption} — ${photo.location}`}
+          data-category={photo.category}
+        >
+          <div class="photo-inner">
+            <!-- Replace with <Image> from astro:assets once you have real images -->
+            <img
+              src={photo.src}
+              alt={`${photo.caption}, ${photo.location}`}
+              loading={i < 4 ? 'eager' : 'lazy'}
+            />
+            <div class="photo-overlay">
+              <div class="overlay-content">
+                <span class="overlay-cat">{photo.category}</span>
+                <span class="overlay-loc">{photo.location}</span>
+              </div>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+
+
+</BaseLayout>
+
+<!-- GLightbox -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js" is:inline></script>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Init lightbox
+    const lightbox = GLightbox({
+      selector: '.glightbox',
+      touchNavigation: true,
+      loop: true,
+      zoomable: true,
+    });
+
+    // Filter logic
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const photoItems = document.querySelectorAll('.photo-item');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.dataset.filter;
+
+        photoItems.forEach(item => {
+          if (filter === 'All' || item.dataset.category === filter) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+</script>
+
+<style>
+  /* HERO */
+  .photo-hero {
+    padding: 9.5rem 3rem 3.5rem;
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 3rem;
+  }
+
+  .photo-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.35;
+    margin-bottom: 1.2rem;
+  }
+
+  .photo-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.8rem, 5.5vw, 5rem);
+    line-height: 1.06;
+    font-weight: 400;
+    margin-bottom: 1.25rem;
+  }
+
+  .photo-title em {
+    font-style: italic;
+    opacity: 0.45;
+  }
+
+  .photo-bio {
+    font-size: 0.78rem;
+    line-height: 1.9;
+    opacity: 0.5;
+    max-width: 44ch;
+  }
+
+  /* FILTERS */
+  .photo-filters {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    align-items: flex-end;
+    padding-bottom: 0.25rem;
+  }
+
+  .filter-btn {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: none;
+    border: 1px solid transparent;
+    padding: 0.3rem 0.7rem;
+    cursor: pointer;
+    color: var(--ink);
+    opacity: 0.35;
+    transition: all 0.2s;
+  }
+
+  .filter-btn:hover,
+  .filter-btn.active {
+    opacity: 1;
+    border-color: var(--rule);
+  }
+
+  /* GRID */
+  .photo-grid-section {
+    padding: 3rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .masonry-grid {
+    columns: 3;
+    column-gap: 1px;
+    background: var(--rule);
+  }
+
+  .photo-item {
+    display: block;
+    break-inside: avoid;
+    margin-bottom: 1px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .photo-inner {
+    position: relative;
+    overflow: hidden;
+    background: #ddd;
+  }
+
+  .photo-inner img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    /* Placeholder aspect ratio — remove once you have real images */
+    min-height: 200px;
+    object-fit: cover;
+    background: linear-gradient(135deg, #d0c8be, #b8afa5);
+  }
+
+  .photo-item:hover .photo-inner img {
+    transform: scale(1.04);
+  }
+
+  .photo-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(17,17,17,0);
+    transition: background 0.35s ease;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .photo-item:hover .photo-overlay {
+    background: rgba(17,17,17,0.35);
+  }
+
+  .overlay-content {
+    padding: 1rem;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .photo-item:hover .overlay-content {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .overlay-cat {
+    font-size: 0.58rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(245,242,237,0.7);
+  }
+
+  .overlay-loc {
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    color: #f5f2ed;
+    font-family: var(--font-serif);
+    font-style: italic;
+  }
+
+  /* PLACEHOLDER NOTE */
+  .placeholder-note {
+    padding: 2rem 3rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .placeholder-note p {
+    font-size: 0.7rem;
+    opacity: 0.4;
+    line-height: 1.7;
+  }
+
+  .placeholder-note code {
+    background: rgba(0,0,0,0.06);
+    padding: 0.1rem 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+  }
+
+  @media (max-width: 900px) {
+    .photo-hero { grid-template-columns: 1fr; }
+    .photo-filters { flex-direction: row; align-items: flex-start; flex-wrap: wrap; }
+    .masonry-grid { columns: 2; }
+  }
+
+  @media (max-width: 600px) {
+    .photo-hero, .photo-grid-section { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .masonry-grid { columns: 1; }
+  }
+</style>

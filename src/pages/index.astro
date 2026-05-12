@@ -1,0 +1,254 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+
+const skills = [
+  'C#', 'JavaScript', 'React', 'Python',
+  'HTML & CSS', 'Node.js', 'MySQL', 'REST APIs',
+  'Git & GitHub',  'WordPress',
+];
+
+const projects = [
+  {
+    num: '001',
+    name: 'Film & TV Search',
+    description: 'Full-stack dissertation project — a search engine letting users browse films across streaming platforms without searching each individually.',
+    stack: ['React', 'Node.js', 'Express', 'MySQL', 'REST API'],
+    links: [
+      { label: 'Front-end repo', url: 'https://github.com/TomPatterson9/Front-End-Film-App-' },
+      { label: 'Back-end repo', url: 'https://github.com/TomPatterson9/Server-Side-Film-App' },
+    ],
+  },
+  {
+    num: '002',
+    name: 'Online File Manager',
+    description: 'An online file manager built in C# Blazor while working at Auger, allowing users to upload, manage and share files through a web interface.',
+    stack: ['C#', 'Blazor', 'ASP.NET Core', 'Azure Blob Storage'],
+    links: [
+      { label: 'N/A', url: '' },
+    ],
+  },
+  {
+    num: '003',
+    name: 'Recipe App',
+    description: 'Mobile app built in React Native for browsing recipes and building shopping lists. All data stored in JSON.',
+    stack: ['React Native', 'JSON'],
+    links: [
+      { label: 'Repository', url: 'https://github.com/TomPatterson9/Recipe-App' },
+    ],
+  },
+  {
+    num: '004',
+    name: 'Academy International',
+    description: 'Freelance redesign of a tutoring agency website. Built with WordPress and custom CSS, including contact forms for prospective students.',
+    stack: ['WordPress', 'CSS'],
+    links: [
+      { label: 'Website', url: 'http://academy1nternational.co.uk/' },
+    ],
+  },
+  {
+    num: '005',
+    name: 'Portfolio Site',
+    description: 'My previous portfolio, built from scratch with HTML, CSS, JavaScript and the Bulma framework. Started in 2017, iterated on continuously.',
+    stack: ['HTML', 'CSS', 'JavaScript', 'Bulma'],
+    links: [
+      { label: 'Repository', url: 'https://github.com/TomPatterson9/TomPatterson9.github.io' },
+    ],
+  },
+];
+---
+
+<BaseLayout title="Tom Patterson — Software Developer" page="software">
+
+  <!-- HERO -->
+  <section class="hero animate-fade-up">
+    <div class="hero-left">
+      <p class="hero-label">01 / Software Developer</p>
+      <h1 class="hero-title">
+        Building<br>things that<br><em>work.</em>
+      </h1>
+    </div>
+    <div class="hero-right">
+      <p class="hero-bio">
+        Computer Science Graduate from the University of Liverpool, I have been working as a Freelance developer for the past 2 years. 
+        I have previously worked with small companies and startups, building websites and web applications. I have experience with a variety of technologies, including C#, JavaScript, React, Node.js, MySQL, and more. I am passionate about building things that work and solving problems through code.
+
+      </p>
+      <div class="hero-links">
+        <a href="https://github.com/TomPatterson9" target="_blank" rel="noopener" class="hero-link">GitHub</a>
+        <a href="https://www.linkedin.com/in/thomas-patterson-3b5716130/" target="_blank" rel="noopener" class="hero-link">LinkedIn</a>
+        <a href="mailto:thomas.patterson99@gmail.com" class="hero-link">Email</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section animate-fade-up delay-1">
+    <div class="section-header">
+      <span class="section-title">Skills & Stack</span>
+      <span class="section-count">{skills.length} technologies</span>
+    </div>
+    <div class="skills-list">
+      {skills.map(skill => <span class="skill-tag">{skill}</span>)}
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section animate-fade-up delay-2">
+    <div class="section-header">
+      <span class="section-title">Selected Projects</span>
+      <span class="section-count">{projects.length.toString().padStart(2,'0')} projects</span>
+    </div>
+    <div class="projects-grid">
+      {projects.map(p => (
+        <ProjectCard
+          num={p.num}
+          name={p.name}
+          description={p.description}
+          stack={p.stack}
+          links={p.links}
+        />
+      ))}
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* HERO */
+  .hero {
+    padding: 9.5rem 3rem 4.5rem;
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: end;
+  }
+
+  .hero-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.35;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.8rem, 5.5vw, 5rem);
+    line-height: 1.06;
+    font-weight: 400;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    opacity: 0.45;
+  }
+
+  .hero-right {
+    padding-bottom: 0.3rem;
+    border-left: 1px solid var(--rule);
+    padding-left: 3rem;
+  }
+
+  .hero-bio {
+    font-size: 0.78rem;
+    line-height: 1.95;
+    opacity: 0.55;
+    margin-bottom: 1.75rem;
+    max-width: 42ch;
+  }
+
+  .hero-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .hero-link {
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 2px;
+    opacity: 0.55;
+    transition: opacity 0.2s;
+  }
+
+  .hero-link:hover { opacity: 1; }
+
+  /* SECTION */
+  .section {
+    padding: 3.5rem 3rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 0.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .section-title {
+    font-family: var(--font-serif);
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .section-count {
+    font-size: 0.6rem;
+    opacity: 0.3;
+    letter-spacing: 0.08em;
+  }
+
+  /* SKILLS */
+  .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .skill-tag {
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 1px solid var(--rule);
+    padding: 0.3rem 0.75rem;
+    opacity: 0.65;
+    transition: opacity 0.2s;
+  }
+
+  .skill-tag:hover { opacity: 1; }
+
+  /* PROJECTS GRID */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid var(--rule);
+    
+  }
+
+  /* Make last row cards lose right border if last in row */
+  .projects-grid > :global(.project-card:nth-child(3n)) {
+    border-right: none;
+  }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-right { border-left: none; padding-left: 0; border-top: 1px solid var(--rule); padding-top: 2rem; }
+    .projects-grid { grid-template-columns: 1fr 1fr; }
+    .projects-grid > :global(.project-card:nth-child(3n)) { border-right: 1px solid var(--rule); }
+    .projects-grid > :global(.project-card:nth-child(2n)) { border-right: none; }
+  }
+
+  @media (max-width: 600px) {
+    .hero, .section { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .projects-grid > :global(.project-card) { border-right: none !important; padding-right: 0; }
+  }
+</style>

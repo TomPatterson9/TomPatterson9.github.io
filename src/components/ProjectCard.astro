@@ -1,0 +1,103 @@
+---
+interface Props {
+  num: string;
+  name: string;
+  description: string;
+  stack: string[];
+  links: { label: string; url: string }[];
+}
+
+const { num, name, description, stack, links } = Astro.props;
+---
+
+<div class="project-card">
+  <p class="project-num">{num}</p>
+  <h2 class="project-name">{name}</h2>
+  <p class="project-desc">{description}</p>
+  <div class="project-stack">
+    {stack.map(s => <span class="stack-tag">{s}</span>)}
+  </div>
+  <div class="project-links">
+    {links.map(l => (
+      <a href={l.url} target="_blank" rel="noopener" class="project-link">{l.label}</a>
+    ))}
+  </div>
+</div>
+
+<style>
+  .project-card {
+    padding: 2rem 2rem 2rem 0;
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    cursor: default;
+    transition: background 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .project-card:hover {
+    background: rgba(0,0,0,0.02);
+  }
+
+  .project-num {
+    font-size: 0.6rem;
+    opacity: 0.3;
+    letter-spacing: 0.1em;
+    margin: 0 0 1rem 0.5rem;
+  }
+
+  .project-name {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin: 0 0 0.75rem 0.5rem;
+
+  }
+
+  .project-desc {
+    font-size: 0.72rem;
+    line-height: 1.85;
+    opacity: 0.55;
+    margin: 0 0 1rem 0.5rem;
+    flex: 1;
+  }
+
+  .project-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 0 0 1.25rem 0.5rem;
+  }
+
+  .stack-tag {
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 1px solid var(--rule);
+    padding: 0.2rem 0.5rem;
+    opacity: 0.6;
+  }
+
+  .project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .project-link {
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 1px;
+    margin: 0 0 0 0.5rem;
+    opacity: 0.65;
+    transition: opacity 0.2s;
+  }
+
+  .project-link:hover {
+    opacity: 1;
+  }
+</style>

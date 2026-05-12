@@ -1,0 +1,135 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  page: 'software' | 'photography';
+}
+
+const { title, description = 'Tom Patterson — Software Developer & Photographer', page } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <title>{title}</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet" />
+
+  <style is:global>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --ink: #111;
+      --paper: #f5f2ed;
+      --rule: #ccc;
+      --muted: rgba(17,17,17,0.45);
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--font-mono);
+      font-weight: 400;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-fade-up {
+      animation: fadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .delay-1 { animation-delay: 0.08s; }
+    .delay-2 { animation-delay: 0.16s; }
+    .delay-3 { animation-delay: 0.24s; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav style="
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.2rem 3rem;
+    border-bottom: 1px solid var(--rule);
+    background: var(--paper);
+  ">
+    <span style="font-family: var(--font-serif); font-size: 1.05rem; letter-spacing: 0.01em;">
+      Tom Patterson
+    </span>
+    <ul style="display: flex; gap: 2.5rem; list-style: none;">
+      <li>
+        <a
+          href="/"
+          style={`
+            font-size: 0.68rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: opacity 0.2s;
+            opacity: ${page === 'software' ? '1' : '0.4'};
+          `}
+        >Software</a>
+      </li>
+      <li>
+        <a
+          href="/photography"
+          style={`
+            font-size: 0.68rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: opacity 0.2s;
+            opacity: ${page === 'photography' ? '1' : '0.4'};
+          `}
+        >Photography</a>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+    <slot />
+  </main>
+
+  <footer style="
+    padding: 2rem 3rem;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.65rem;
+    opacity: 0.4;
+    letter-spacing: 0.08em;
+  ">
+    <span>© {new Date().getFullYear()} Tom Patterson</span>
+    <span style="display:flex; gap:1.5rem;">
+      <a href="https://github.com/TomPatterson9" target="_blank" rel="noopener" style="text-decoration:none; text-transform:uppercase; letter-spacing:0.12em;">GitHub</a>
+      <a href="https://www.linkedin.com/in/thomas-patterson-3b5716130/" target="_blank" rel="noopener" style="text-decoration:none; text-transform:uppercase; letter-spacing:0.12em;">LinkedIn</a>
+      <a href="mailto:thomas.patterson99@gmail.com" style="text-decoration:none; text-transform:uppercase; letter-spacing:0.12em;">Email</a>
+    </span>
+  </footer>
+
+</body>
+</html>
